@@ -17,7 +17,9 @@ public getCurrentUser(){
   return this.http.get(`${baseUrl}/current-user`);
 }
   //generate token
-  public LoginData(loginData:any){
+  public LoginData(loginData:any,role:any){
+    if(role=='admin')
+      return this.http.post(`${baseUrl}/admin/login`,loginData);
     return this.http.post(`${baseUrl}/user/login`,loginData);
   }
 

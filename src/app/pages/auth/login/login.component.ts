@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, RouterLink } from '@angular/router';
 import { LoginService } from 'src/app/service/login.service';
-
+import { LocationStrategy } from '@angular/common';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +20,12 @@ export class LoginComponent implements OnInit {
     password:''
   }
 
-  constructor(private _snake:MatSnackBar,private login:LoginService,private router:Router) { }
+  constructor(private location: LocationStrategy,private _snake:MatSnackBar,private login:LoginService,private router:Router) { 
+    history.pushState(null,window.location.href);  
+    this.location.onPopState(() => {  
+    history.pushState(null,  window.location.href);
+});  
+  }
 
   ngOnInit(): void {
   }
@@ -37,7 +42,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.login.LoginData(this.loginData).subscribe((data:any)=>{
+    this.login.LoginData(this.loginData,this.loginData.username).subscribe((data:any)=>{
       console.log("success");
       console.log(data);
 
