@@ -27,7 +27,8 @@ export class SignupComponent implements OnInit {
     mobileNumber:'',
     password : '',
     confirmPassword:'',
-    userRole:''
+    userRole:'',
+    name:''
   }
   constructor(private userService :UserService,private snack:MatSnackBar) { }
 
@@ -72,7 +73,7 @@ export class SignupComponent implements OnInit {
         return;
     }
     if(this.user.confirmPassword == this.user.password){
-      this.userService.addUser(this.user).subscribe(
+      this.userService.addUser(this.user,this.user.userRole).subscribe(
         (data)=>{
           //success
         
@@ -103,7 +104,8 @@ export class SignupComponent implements OnInit {
       mobileNumber:'',
       password : '',
       confirmPassword:'',
-      userRole:''
+      userRole:'',
+      name:''
     }
   }
 }

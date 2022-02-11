@@ -20,7 +20,8 @@
                         <!-- email field -->
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>Email</mat-label>
-                            <input required type="email" [(ngModel)]="user.username" 
+                            <input required type="email" [(ngModel)]="user.email"
+                            [(ngModel)]="user.username" 
                             name="email" 
                             matInput placeholder="Enter Email">
                             
@@ -30,7 +31,7 @@
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>Username</mat-label>
                             <input required  type="text" 
-                            [(ngModel)]="user.email"
+                            [(ngModel)]="user.name"
                             name ="username"
                             matInput placeholder="Enter Username">
                             <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
