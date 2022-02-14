@@ -22,6 +22,7 @@ export class CustomerNavbarComponent implements OnInit {
   }
   public logout(){
     this.login.logout();
+    // setting things null and false ,post logout
     this.isLoggedIn=false;
     this.user=null;
     

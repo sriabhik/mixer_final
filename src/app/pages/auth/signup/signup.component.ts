@@ -85,7 +85,7 @@ export class SignupComponent implements OnInit {
         {
           //fail
           console.log(error)
-          this.snack.open("something went wrongs","Cancel",{duration:2000,verticalPosition:'top',horizontalPosition:'left'})    
+          this.snack.open("User Already Registered Or  Try again","Cancel",{duration:2000,verticalPosition:'top',horizontalPosition:'left'})    
         }
       );
     }

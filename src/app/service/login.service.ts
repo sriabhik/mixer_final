@@ -46,7 +46,7 @@ public getCurrentUser(){
     localStorage.removeItem('user');
     return true;
   }
-
+  
   //get token
   public getToken(){
       return localStorage.getItem('token');

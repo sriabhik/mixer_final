@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
     (error)=>{
       console.log("error")
       console.log(error)
-      this._snake.open("Invalid Details","Cancel",{duration:2000})
+      this._snake.open("Check Details again or Try Again","Cancel",{duration:2000})
     })
   }
 }
