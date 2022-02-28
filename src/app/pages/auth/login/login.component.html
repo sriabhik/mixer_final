@@ -25,11 +25,18 @@
                         <!-- password field -->
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>User Password</mat-label>
-                            <input 
+                            <!-- <input 
                                 [(ngModel)]="LoginData.password"
                                 required type= "password"   
                                 name ="password"
+                                matInput placeholder="Enter Password"> -->
+
+                                <input matInput [type]="showPassword ? 'text' : 'password'" name="password" 
+                                [(ngModel)]="LoginData.password"
                                 matInput placeholder="Enter Password">
+                                <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                                    {{showPassword?'visibility_off':'visibility'}}
+                                </mat-icon>
                         </mat-form-field>
 
                         <div class="container text-center">

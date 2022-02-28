@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 import { UserService } from 'src/app/service/user.service';
 
 interface datatype {
@@ -19,7 +18,8 @@ interface datatype {
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
+  public showPassword: 
+  boolean = false;
   public user={
    
     email:'',
@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
     userRole:'',
     name:''
   }
-  constructor(private userService :UserService,private snack:MatSnackBar) { }
+  constructor(private userService :UserService,private snack:MatSnackBar) { } 
 
   ngOnInit(): void {
   }
@@ -41,35 +41,42 @@ export class SignupComponent implements OnInit {
       this.f()
         return;
     }
-    if(this.user.username ==''||this.user.username==null){
+    if(this.user.name ==''||this.user.name==null){
       this.snack.open("Username Required","Cancel",
-      {duration:2000})
-      this.f()
+      {duration:2000}) 
         return;
     }
+    
     if(this.user.email==''||this.user.email==null){
       this.snack.open("Email Required","Cancel",
       {duration:2000})
-      this.f()
         return;
     }
     if(this.user.mobileNumber ==''||this.user.mobileNumber==null){
       this.snack.open("mobileNumber Required","Cancel",
       {duration:2000})
-      
-      this.f()
         return;
     }
-    if(this.user.password ==''||this.user.password==null){
+    if(this.user.mobileNumber.length < 10 && this.user.mobileNumber.length>10 ){
+      this.snack.open("Enter valid mobile number","Cancel",
+      {duration:2000})
+        return;
+    }
+
+    if( this.user.password ==''||this.user.password==null){
       this.snack.open("password Required","Cancel",
       {duration:2000})
-       this.f()
         return;
+    }
+    if(this.user.password.length < 8 ){
+      this.snack.open("password  length should greater than  8 ","Cancel",
+      {duration:2000})
+        return;
+  
     }
     if(this.user.confirmPassword ==''||this.user.confirmPassword==null){
       this.snack.open("Enter Confirm password Required","Cancel",
       {duration:2000})
-      this.f()
         return;
     }
     if(this.user.confirmPassword == this.user.password){
@@ -85,13 +92,14 @@ export class SignupComponent implements OnInit {
         {
           //fail
           console.log(error)
+          this.f()
           this.snack.open("User Already Registered Or  Try again","Cancel",{duration:2000,verticalPosition:'top',horizontalPosition:'left'})    
         }
       );
     }
     else{
-      this.f()
-      this.snack.open("password and confirmPassword mismatch","cancel",{duration:3000})
+     
+      this.snack.open("Password and Confirmpassword doesn't match","cancel",{duration:3000})
       
     }
     
@@ -107,5 +115,9 @@ export class SignupComponent implements OnInit {
       userRole:'',
       name:''
     }
+  }
+
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

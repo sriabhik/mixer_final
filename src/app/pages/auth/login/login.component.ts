@@ -10,6 +10,9 @@ import { LocationStrategy } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
 
+  public showPassword: 
+  boolean = false;
+
   LoginData={
     email:'',
     password:''
@@ -72,8 +75,7 @@ export class LoginComponent implements OnInit {
           this._snake.open("Wrong Password","Cancel",{duration:2000})
           this.LoginData.email=''
           this.LoginData.password=''
-          this.router.navigate([''])
-          
+          this.router.navigate([''])  
        } 
      })
     },
@@ -82,5 +84,8 @@ export class LoginComponent implements OnInit {
       console.log(error)
       this._snake.open("Check Details again or Try Again","Cancel",{duration:2000})
     })
+  }
+  public togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
   }
 }

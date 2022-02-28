@@ -20,10 +20,13 @@
                         <!-- email field -->
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>Email</mat-label>
-                            <input required type="email" [(ngModel)]="user.email"
+                            <!-- email validator -->
+                            <input type = "email" required  [(ngModel)]="user.email"
                             [(ngModel)]="user.username" 
-                            name="email" 
-                            matInput placeholder="Enter Email">    
+                            name="email"  
+                            ngModel [email]="true"
+                            matInput placeholder="Enter Email"> 
+                            <mat-hint>Hint :format must be user@website.com</mat-hint>   
                         </mat-form-field>
                         
                         <!-- name field -->
@@ -43,26 +46,40 @@
                             name ="mobileNumber"
                             matInput placeholder="Enter mobileNumber">
                         </mat-form-field>
-
+                        
+                        
                         <!-- password field -->
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>User Password</mat-label>
-                            <input required type="password"  
+                            <!-- <input required required minlength="8" type="password"  
                             [(ngModel)]="user.password"
-                            name ="password"
+                            name ="password" 
+                            
+                            matInput placeholder="Password"> -->
+                            <input matInput [type]="showPassword ? 'text' : 'password'" name="password" 
+                            [(ngModel)]="user.password"
                             matInput placeholder="Password">
-                           
+                            <mat-hint>Hint : password must be of length greater than 7</mat-hint>
+                            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                                {{showPassword?'visibility_off':'visibility'}}
+                            </mat-icon>
                           </mat-form-field>
     
                         
                         <!-- password field -->
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>Confirm Password</mat-label>
-                            <input required type= "password"  
+                            <!-- <input required required minlength="8" type= "password"  
                             [(ngModel)]="user.confirmPassword"
                             name ="confirmPassword"
+                            matInput placeholder="Confirm Password"> -->
+
+                            <input matInput [type]="showPassword ? 'text' : 'password'" name="confirmPassword" 
+                            [(ngModel)]="user.confirmPassword"
                             matInput placeholder="Confirm Password">
-                           
+                            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                                {{showPassword?'visibility_off':'visibility'}}
+                            </mat-icon>
                         </mat-form-field>
                        
                           <div class="container text-center">
