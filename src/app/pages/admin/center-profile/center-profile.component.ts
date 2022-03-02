@@ -15,6 +15,7 @@
 // }
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AddCenterService } from 'src/app/service/add-center.service';
 import { DeleteCenterDialogComponent } from '../delete-center-dialog/delete-center-dialog.component';
@@ -29,7 +30,8 @@ export class CenterProfileComponent implements OnInit {
   constructor(
     private _api: AddCenterService,
     private _dialog: MatDialog,
-    private _router: Router
+    private _router: Router,
+    private _snack :MatSnackBar
   ) {}
   public centerData: any;
   ngOnInit(): void {
@@ -58,9 +60,11 @@ export class CenterProfileComponent implements OnInit {
             (ServiceCenter: any) =>
               ServiceCenter.serviceCenterID != serviceCenterID
           );
-          alert('deleted successfully!!');
+          this._snack.open("Center Deleted Successfully","Cancel",{duration:2000})
           // location.reload();
           // console.log(data);
+        },(error)=>{
+          this._snack.open("Error Occurred","Cancel",{duration:2000})
         });
       }
     });

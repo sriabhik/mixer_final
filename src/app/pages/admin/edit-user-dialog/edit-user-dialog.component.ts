@@ -21,6 +21,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserDisplayService } from 'src/app/service/user-display.service';
 @Component({
   selector: 'app-edit-user-dialog',
@@ -30,6 +31,7 @@ import { UserDisplayService } from 'src/app/service/user-display.service';
 export class EditUserDialogComponent implements OnInit {
   editUserForm!: FormGroup;
   constructor(
+    private _snack:MatSnackBar,
     private _formBuilder: FormBuilder,
     private _api: UserDisplayService,
     private dialog: MatDialog,
@@ -92,12 +94,12 @@ export class EditUserDialogComponent implements OnInit {
           next: (res:any) => {
             console.log(res);
             
-            alert('update');
+            this._snack.open("User Updated Successfully","Cancel",{duration:2000})
             this.editUserForm.reset();
             this.dialogRef.close('update');
           },
           error: () => {
-            alert('Error while updating the record!');
+            this._snack.open("Error Occurred","Cancel",{duration:2000})
           },
         });
     }

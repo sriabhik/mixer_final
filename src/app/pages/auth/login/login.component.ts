@@ -23,7 +23,8 @@ export class LoginComponent implements OnInit {
     password:''
   }
 
-  constructor(private location: LocationStrategy,private _snake:MatSnackBar,private login:LoginService,private router:Router) { 
+  constructor(private location: LocationStrategy,
+    private _snake:MatSnackBar,private login:LoginService,private router:Router) { 
     history.pushState(null,window.location.href);  
     this.location.onPopState(() => {  
     history.pushState(null,  window.location.href);

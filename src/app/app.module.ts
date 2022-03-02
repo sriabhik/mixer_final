@@ -39,6 +39,7 @@ import { MatTableModule } from '@angular/material/table';
 import { EditUserDialogComponent } from './pages/admin/edit-user-dialog/edit-user-dialog.component';
 import { CenterProfileComponent } from './pages/admin/center-profile/center-profile.component';
 import { DeleteCenterDialogComponent } from './pages/admin/delete-center-dialog/delete-center-dialog.component';
+import { EditCenterComponent } from './pages/admin/edit-center/edit-center.component';
 
 
 
@@ -59,7 +60,8 @@ import { DeleteCenterDialogComponent } from './pages/admin/delete-center-dialog/
     AddCentersComponent,
     EditUserDialogComponent,
     CenterProfileComponent,
-    DeleteCenterDialogComponent
+    DeleteCenterDialogComponent,
+    EditCenterComponent
   
   ],
   imports: [
