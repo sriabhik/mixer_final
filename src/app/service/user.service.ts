@@ -14,7 +14,5 @@ export class UserService {
     return this._http.post(`${baseUrl}/admin/signup`,user);
   
   }
-
-  
   
 }

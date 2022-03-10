@@ -3,11 +3,7 @@
   <div class="row">
     <div class="card-deck col-lg-4" *ngFor="let e of centerData">
       <div class="card" id="adminProfileView">
-        <img
-          src="{{ e.serviceCenterImageUrl }}"
-          class="card-img-top"
-          alt="Service center"
-        />
+       
         <div class="card-body">
           <h5 class="card-title">{{ e.serviceCenterName }}</h5>
           <p class="card-text">
@@ -17,12 +13,10 @@
             <br />
             <strong>Phone Number </strong> {{ e.serviceCenterPhone }}
             <br />
-            {{ e.serviceCenterDescription }}
+            {{e.serviceCenterDescription}}
             <br />
-
             <br />
           </p>
-
           <button
             id="editCenter"
             mat-fab
@@ -40,7 +34,9 @@
           >
             <mat-icon>delete</mat-icon>
           </button>
+          
         </div>
+        <button mat-raised-button color="primary" [routerLink]="'/admin/viewAppointment/'+e.serviceCenterID">Show Registered Complaints</button>
       </div>
     </div>
   </div>

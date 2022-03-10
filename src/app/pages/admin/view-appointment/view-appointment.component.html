@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<mat-card class = "ml30 mr30">
+    <table>
+        <tr>
+          <th>Customer Name</th>
+          <th>Customer email</th>
+          <th>Customer Mobile</th>
+          <th>productName</th>
+          <th>dateOfAppointment</th>
+          <th>Status </th>
+        </tr>
+        
+        <tr *ngFor="let q of DetBySerId">
+          <td>{{q.user.name}}</td>
+          <td>{{q.user.email}}</td>
+          <td>{{q.contactNumber}}</td>
+          <td>{{q.productName}}</td>
+          <td>{{q.dateOfPurchase}}</td>
+          <td><button *ngIf="!q.status; else goto" mat-raised-button color="accent" [routerLink]="'/admin/enterBill/'+q.pId+'/'+q.user.id">Service Completed ? (Generate Bill)</button></td>
+          <ng-template #goto>
+            <td><button  mat-raised-button color="accent">View Bill </button></td>
+          </ng-template>
+        </tr>
+        
+      </table>
+      
+     
+</mat-card>
+    </body>
+</html>
+

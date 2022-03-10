@@ -47,9 +47,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.login.LoginData(this.loginData,this.loginData.username).subscribe((data:any)=>{
-      console.log("success");
-      console.log(data);
-
+    
       //login...
       this.login.loginUser(data.token);
       //refeer interceptor file

@@ -1,0 +1,89 @@
+<div class="bootstrap-wrapper ml50">
+    <div class="container-fluid ">
+        <div class="row">
+           
+            <div class="col-md-9">
+                <mat-card>
+                  
+                    <h1>Booking Appointment</h1>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                <!-- {{quizData | json}} -->
+                                <form (ngSubmit)="formSubmit()">
+                                    <mat-form-field class ="w100" appearance="outline">
+                                        <mat-label>Enter Product Name</mat-label>
+                                        <input 
+                                            type = "text" 
+                                            name="productName" 
+                                            placeholder="Product name" 
+                                            matInput
+                                            [(ngModel)]="productDetails.productName"
+                                           >
+                                    </mat-form-field>
+                                    <!-- model Number -->
+                                  
+                                        <!-- numberr of question -->
+                                            <mat-form-field class ="w100" appearance="outline">
+                                                <mat-label>Enter Model Number</mat-label>
+                                                <input 
+                                                    type = "text" 
+                                                    name="modelNumber" 
+                                                    placeholder="Enter Model Number" 
+                                                    matInput
+                                                    [(ngModel)]="productDetails.modelNumber"
+                                                   >
+                                            </mat-form-field>
+               
+                                        <!-- Number -->
+                                            <mat-form-field class ="w100" appearance="outline">
+                                                <mat-label>Enter Contact Number</mat-label>
+                                                <input 
+                                                    type = "text" 
+                                                    name="contactNumber" 
+                                                    placeholder="Enter ContactNumber" 
+                                                    matInput
+                                                    [(ngModel)]="productDetails.contactNumber"
+                                                    >
+                                            </mat-form-field>
+                                    
+                        
+                                   <mat-form-field class ="w100" appearance="outline">
+                                    <mat-label>Enter Problem</mat-label>
+                                    <textarea 
+                                        type = "text" 
+                                        name="productDescription" 
+                                        placeholder="Enter title" 
+                                        matInput
+                                        rows=7
+                                        [(ngModel)]="productDetails.enterProblem"
+                                        ></textarea>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Enter Date Of Purchase</mat-label>
+                                    <input 
+                                       
+                                        type = "date" 
+                                        name="d " 
+                                        placeholder="Enter Purchase Date"
+                                        matInput
+                                        [(ngModel)]="productDetails.dateOfPurchase"
+                                        >
+                                        <mat-hint>Appointment Date must be within in 5 Days range from Current Date</mat-hint>
+                                </mat-form-field>
+                                    
+                                        
+                                        <!-- adding button -->
+                                        
+                                        <div class="container text-center mt10">
+                                            <button mat-raised-button color="accent">Update Details</button>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

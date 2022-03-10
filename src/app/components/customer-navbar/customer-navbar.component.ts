@@ -11,15 +11,23 @@ export class CustomerNavbarComponent implements OnInit {
   isLoggedIn = false;
   user = null;
   constructor(public login:LoginService,private router:Router) { }
-
+  userData:any
+  id:any
   ngOnInit(): void {
     this.isLoggedIn= this.login.isLoggedIn();
     this.user = this.login.getUser();
     this.login.loginStatusSubject.asObservable().subscribe((data: any)=>{
       this.isLoggedIn= this.login.isLoggedIn();
       this.user = this.login.getUser();
+
     });
+    this.login.getCurrentUser().subscribe((user:any)=>{
+      this.userData = user
+      console.log(this.userData);
+      this.id = this.userData.id
+    })
   }
+  
   public logout(){
     this.login.logout();
     // setting things null and false ,post logout
@@ -28,4 +36,5 @@ export class CustomerNavbarComponent implements OnInit {
     
     this.router.navigate([''])
   }
+  
 }

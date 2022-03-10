@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
-
+import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
@@ -40,8 +40,13 @@ import { EditUserDialogComponent } from './pages/admin/edit-user-dialog/edit-use
 import { CenterProfileComponent } from './pages/admin/center-profile/center-profile.component';
 import { DeleteCenterDialogComponent } from './pages/admin/delete-center-dialog/delete-center-dialog.component';
 import { EditCenterComponent } from './pages/admin/edit-center/edit-center.component';
-
-
+import { DashboardComponent } from './pages/customer/dashboard/dashboard.component';
+import { RouterPageComponent } from './pages/customer/router-page/router-page.component';
+import { AppointmentComponent } from './pages/customer/appointment/appointment.component';
+import { CdkColumnDef } from '@angular/cdk/table';
+import { ViewAppointmentComponent } from './pages/admin/view-appointment/view-appointment.component';
+import { EnterBillComponent } from './pages/admin/enter-bill/enter-bill.component';
+import { UpdateAppointmentComponent } from './pages/customer/update-appointment/update-appointment.component';
 
 @NgModule({
   declarations: [
@@ -61,10 +66,17 @@ import { EditCenterComponent } from './pages/admin/edit-center/edit-center.compo
     EditUserDialogComponent,
     CenterProfileComponent,
     DeleteCenterDialogComponent,
-    EditCenterComponent
+    EditCenterComponent,
+    DashboardComponent,
+    RouterPageComponent,
+    AppointmentComponent,
+    ViewAppointmentComponent,
+    EnterBillComponent,
+    UpdateAppointmentComponent
   
   ],
   imports: [
+    MatSelectModule,
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
@@ -88,7 +100,7 @@ import { EditCenterComponent } from './pages/admin/edit-center/edit-center.compo
   providers: [{
     provide: MatDialogRef,
     useValue: {}
-  },authInterceptorProviders],
+  },authInterceptorProviders,CdkColumnDef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

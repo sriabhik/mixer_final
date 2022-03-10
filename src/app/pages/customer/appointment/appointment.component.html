@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<mat-card class = "ml30 mr30">
+    <table>
+        <tr>
+          <th>ServiceCenterName</th>
+          <th>DateOfAppointment</th>
+          <th>Model</th>
+          <th>Delete</th>
+          <th>Update</th>
+          <th>Status</th>
+          
+        </tr>
+      
+        <tr *ngFor="let q of BookingData">
+          <td>{{q.serviceCenter.serviceCenterName}}</td>
+          <td>{{q.dateOfPurchase}}</td>
+          <td>{{q.modelNumber}}</td>
+          <td><button mat-raised-button color="primary" [routerLink]="'/customer/updateAppointment/'+q.pId">Update</button></td>
+          <td><button mat-raised-button color="warn"  (click)="deleteBook(q.pId)">Delete</button></td>
+          <td><button mat-raised-button *ngIf="!q.status ; else show" color="accent">In Progress</button></td>
+          
+          <ng-template #show>
+            <td><button mat-raised-button color="accent">Completed (View Bill) </button></td>
+          </ng-template>
+        </tr>
+        
+      </table>
+      
+     
+</mat-card>
+    </body>
+</html>
+

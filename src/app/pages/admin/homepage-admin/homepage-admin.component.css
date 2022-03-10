@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap");
+
+body{
+    background:black;
+}
+h1 {
+  text-align: center;
+  color: white;
+  text-transform: uppercase;
+  padding: 1px;
+  font-family: "Raleway", cursive;
+  font-weight: 100;
+  position: relative;
+  width: 100%;
+  background: linear-gradient(to right, black, #eee, black);
+  white-space: nowrap;
+}
+
+h1 a {
+  background: black;
+  display: block;
+  padding: 100px;
+  text-decoration: none;
+  letter-spacing: 30px;
+  color: white;
+  animation: comein 1.5s 1 ease-in-out forwards;
+}
+
+@keyframes comein {
+  0% {
+    letter-spacing: 80px;
+    color: rgba(255, 255, 255, 0);
+  }
+  70% {
+    letter-spacing: 40px;
+  }
+  100% {
+    letter-spacing: 25px;
+    color: rgba(255, 255, 255, 1);
+  }
+}
+

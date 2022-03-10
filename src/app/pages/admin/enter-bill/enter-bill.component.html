@@ -1,0 +1,45 @@
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 mt50">  
+                <h1><strong>Customer Detail</strong></h1>
+                <mat-card>
+                  
+                    <h1><strong style=" color: chocolate;">Customer Name :</strong>{{userData[0].user.name}}</h1>
+      
+                    <strong style=" color: chocolate;">Email : </strong> {{userData[0].user.email }}
+                    <br>
+                    <br>
+                    <strong style=" color: chocolate;">Phone Number : </strong> {{userData[0].user.mobileNumber}}
+                    <br>
+                    <br>
+                    <strong style=" color: red">productName : </strong> {{BillingData.productName}}
+                    <br><br>
+                    <strong style=" color: red">ServiceCenter : </strong> {{BillingData.serviceCenterName}}
+                  
+                    <br />      
+                </mat-card>         
+            </div>
+            
+            <div class="col-md-9 mt50">
+                <form (ngSubmit)="formSubmit()">
+                    
+                    <h1><strong>Billing Details </strong></h1>
+                    <mat-card>
+                        <mat-form-field class ="w100 mt10" appearance="outline">
+                            <mat-label>Enter Repair Cost</mat-label>
+                            <input 
+                                type = "text" 
+                                name="repair_Cost" 
+                                placeholder="Enter Repair Cost" 
+                                matInput
+                                [(ngModel)]="BillingData.repair_Cost"
+                            >
+                        </mat-form-field>
+                        <button type="submit" mat-raised-button color="primary">Add</button>
+                    </mat-card>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

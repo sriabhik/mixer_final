@@ -1,3 +1,40 @@
-<app-customer-navbar></app-customer-navbar>
-<p>homepage works!</p>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="card-deck col-lg-4" *ngFor="let e of centerData">
+        <div class="card" id="adminProfileView">
+         
+          <div class="card-body">
+            <mat-card-header>
+             
+                <mat-card-title>
+                    <span>Center : </span> 
+                    {{e.serviceCenterName}}
+                </mat-card-title>
+            </mat-card-header>
+            <p class="card-text mt10">
+              <strong>Address : </strong> {{ e.serviceCenterAddress }}
+              <br /><br>
+              <strong>Email : </strong> {{ e.serviceCenterMailId }}
+              <br /><br>
+              <strong>Phone Number : </strong> {{ e.serviceCenterPhone }}
+              <br /><br>
+              <strong>Description : </strong>{{e.serviceCenterDescription}}
+              <br />
+              
+            </p>
+            <button
+             
+              mat-raised-button
+              color="primary"
+              style="margin-right: 15px"
+              [routerLink]="'/customer/Dashboard/'+e.serviceCenterID"
+            >
+                Dashboard
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 

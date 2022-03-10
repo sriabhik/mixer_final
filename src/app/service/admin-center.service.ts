@@ -18,15 +18,7 @@ export class AdminCenterService {
 
   constructor(private _http:HttpClient) { }
 
-  // //adding center
-  // public addServiceCenter(CenterData:any){
-  //   return this._http.post(`${baseUrl}/admin/addServiceCenter`,CenterData)
-  // }
-
-  // //get all service center
-  // public getAllServiceCenter(){
-  //   return this._http.get(`${baseUrl}/admin/getServiceCenter`)
-  // }
+ 
   
   //get one center at a time
   public getServiceCenter(CenterId:any){
