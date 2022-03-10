@@ -37,11 +37,16 @@ public class User  implements UserDetails {
     @JsonIgnore
     private Set<UserRole> userRoles = new HashSet<>();
 
+    @OneToMany(orphanRemoval = true,mappedBy = "user",cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<Product> products = new HashSet<>();
     //no args constructor
     public User() {
     }
     //custom constructor
-    public User(Long id, String email, String password, String username, String name, String mobileNumber, String userRole, Set<UserRole> userRoles) {
+
+
+    public User(Long id, String email, String password, String username, String name, String mobileNumber, String userRole, Set<UserRole> userRoles, Set<Product> products) {
         Id = id;
         this.email = email;
         this.password = password;
@@ -50,9 +55,9 @@ public class User  implements UserDetails {
         this.mobileNumber = mobileNumber;
         this.userRole = userRole;
         this.userRoles = userRoles;
+        this.products = products;
     }
 
-    //getter setter
     public Long getId() {
         return Id;
     }
@@ -69,14 +74,7 @@ public class User  implements UserDetails {
         this.email = email;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    @Override
     public String getPassword() {
         return password;
     }
@@ -85,12 +83,21 @@ public class User  implements UserDetails {
         this.password = password;
     }
 
+    @Override
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getMobileNumber() {
@@ -115,6 +122,14 @@ public class User  implements UserDetails {
 
     public void setUserRoles(Set<UserRole> userRoles) {
         this.userRoles = userRoles;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Set<Product> products) {
+        this.products = products;
     }
 
     //userDetails Method

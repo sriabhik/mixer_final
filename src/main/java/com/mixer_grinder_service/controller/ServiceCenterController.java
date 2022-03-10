@@ -32,6 +32,11 @@ public class ServiceCenterController {
         return ResponseEntity.ok(this.serviceCenterService.getServiceCenter(serviceCenterID));
     }
 
+//    @GetMapping("user/getServiceCenter/{serviceCenterID}")
+//    public  ResponseEntity<?> ServiceCenters(@PathVariable("serviceCenterID") Long serviceCenterID){
+//        return ResponseEntity.ok(this.serviceCenterService.getServiceCenter(serviceCenterID));
+//    }
+
     @PostMapping("/admin/addServiceCenter")
     public ResponseEntity<?> addServiceCenter( ServiceCenter serviceCenter,
                                               @RequestParam("file") MultipartFile file)
