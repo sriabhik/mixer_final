@@ -85,7 +85,7 @@ export class DashboardComponent implements OnInit {
     else if(this.productDetails.dateOfPurchase.trim()!=''){
       let date3 = new Date(this.productDetails.dateOfPurchase)
     
-      let date2 = new Date();this.datePipe.transform(new Date(), 'MM-dd-yyyy');
+      let date2 = new Date();
       let Time = date3.getTime() - date2.getTime(); 
       let Days = Time / (1000 * 3600 * 24);
       if(Days < 0){

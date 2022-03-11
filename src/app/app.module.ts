@@ -47,6 +47,9 @@ import { CdkColumnDef } from '@angular/cdk/table';
 import { ViewAppointmentComponent } from './pages/admin/view-appointment/view-appointment.component';
 import { EnterBillComponent } from './pages/admin/enter-bill/enter-bill.component';
 import { UpdateAppointmentComponent } from './pages/customer/update-appointment/update-appointment.component';
+import { ViewBillComponent } from './pages/admin/view-bill/view-bill.component';
+import { ViewBillCustomerComponent } from './pages/customer/view-bill-customer/view-bill-customer.component';
+
 
 @NgModule({
   declarations: [
@@ -72,7 +75,10 @@ import { UpdateAppointmentComponent } from './pages/customer/update-appointment/
     AppointmentComponent,
     ViewAppointmentComponent,
     EnterBillComponent,
-    UpdateAppointmentComponent
+    UpdateAppointmentComponent,
+    ViewBillComponent,
+    ViewBillCustomerComponent,
+    
   
   ],
   imports: [

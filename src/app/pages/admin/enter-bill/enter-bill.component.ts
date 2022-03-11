@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminCenterService } from 'src/app/service/admin-center.service';
 import { LoginService } from 'src/app/service/login.service';
 import { ProductService } from 'src/app/service/product.service';
@@ -18,6 +18,7 @@ export class EnterBillComponent implements OnInit {
     private _snake :MatSnackBar,
     private _admin_center:AdminCenterService,
     private login:LoginService,
+    private _router:Router
     ) { }
   productId:any
   BillRecipet:any
@@ -131,7 +132,11 @@ export class EnterBillComponent implements OnInit {
    
     this._product.addBill(this.BillingData).subscribe((data)=>{
       this.BillRecipet = data
+      console.log(this.BillingData);
+      
+      
       this._snake.open("Bill Added Successfully","Cancel",{duration:2000})
+      this._router.navigate(['/admin/centerProfile'])
       
     },(error)=>{
       console.log(error);

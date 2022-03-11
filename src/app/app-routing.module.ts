@@ -7,6 +7,7 @@ import { EditCenterComponent } from './pages/admin/edit-center/edit-center.compo
 import { EnterBillComponent } from './pages/admin/enter-bill/enter-bill.component';
 import { HomepageAdminComponent } from './pages/admin/homepage-admin/homepage-admin.component';
 import { ViewAppointmentComponent } from './pages/admin/view-appointment/view-appointment.component';
+import { ViewBillComponent } from './pages/admin/view-bill/view-bill.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { SignupComponent } from './pages/auth/signup/signup.component';
 import { AppointmentComponent } from './pages/customer/appointment/appointment.component';
@@ -14,11 +15,13 @@ import { DashboardComponent } from './pages/customer/dashboard/dashboard.compone
 import { HomepageComponent } from './pages/customer/homepage/homepage.component';
 import { RouterPageComponent } from './pages/customer/router-page/router-page.component';
 import { UpdateAppointmentComponent } from './pages/customer/update-appointment/update-appointment.component';
+import { ViewBillCustomerComponent } from './pages/customer/view-bill-customer/view-bill-customer.component';
 
 import { AdminGuard } from './service/admin.guard';
 import { CustomerGuard } from './service/customer.guard';
 
 const routes: Routes = [
+  
   {
     path:'signup',
     component:SignupComponent,
@@ -59,7 +62,12 @@ const routes: Routes = [
       {
         path:'enterBill/:pId/:id',
         component:EnterBillComponent
+      },
+      {
+        path:'viewBill/:pId',
+        component:ViewBillComponent
       }
+      
     ]
   },
   {
@@ -82,6 +90,10 @@ const routes: Routes = [
       {
         path:'updateAppointment/:pId',
         component:UpdateAppointmentComponent
+      },
+      {
+        path:'viewBill/:pId',
+        component:ViewBillCustomerComponent
       }
     ]
   }

@@ -40,4 +40,7 @@ export class ProductService {
   public getAppointmentByProductId(PId:any){
     return this.http.get(`${baseUrl}/user/getAppointmentpid/${PId}`)
   }
+  public getBillByProductId(pId:any){
+    return this.http.get(`${baseUrl}/Bill/getBillbyProduct/${pId}`)
+  }
 }

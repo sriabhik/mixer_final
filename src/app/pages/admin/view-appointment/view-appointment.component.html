@@ -40,7 +40,7 @@ tr:nth-child(even) {
           <td>{{q.dateOfPurchase}}</td>
           <td><button *ngIf="!q.status; else goto" mat-raised-button color="accent" [routerLink]="'/admin/enterBill/'+q.pId+'/'+q.user.id">Service Completed ? (Generate Bill)</button></td>
           <ng-template #goto>
-            <td><button  mat-raised-button color="accent">View Bill </button></td>
+            <td><button  mat-raised-button color="accent" [routerLink]="'/admin/viewBill/'+q.pId">View Bill </button></td>
           </ng-template>
         </tr>
         
