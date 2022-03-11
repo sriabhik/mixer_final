@@ -6,4 +6,5 @@ public interface BillService {
     Bill addBill(Bill bill);
     Bill updateBill(Bill bill);
     Bill getBill(Long Id);
+    Bill getBillBypId(Long pId);
 }

@@ -25,4 +25,8 @@ public class BillController {
     public ResponseEntity<?> getBill(@PathVariable("Id") Long Id){
         return ResponseEntity.ok(this.billService.getBill(Id));
     }
+    @GetMapping("/getBillbyProduct/{pId}")
+    public ResponseEntity<?> getBillBypId(@PathVariable("pId") Long pId){
+        return ResponseEntity.ok(this.billService.getBillBypId(pId));
+    }
 }

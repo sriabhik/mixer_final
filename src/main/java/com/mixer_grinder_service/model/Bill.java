@@ -76,4 +76,12 @@ public class Bill {
     public void setProduct(Product product) {
         this.product = product;
     }
+
+    public String getServiceCenterName() {
+        return serviceCenterName;
+    }
+
+    public void setServiceCenterName(String serviceCenterName) {
+        this.serviceCenterName = serviceCenterName;
+    }
 }
