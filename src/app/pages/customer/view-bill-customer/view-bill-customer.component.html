@@ -1,78 +1,79 @@
-<mat-card class="mt20">
+<h1><strong style="margin-left:300px;">Bill Details</strong></h1>
+<mat-card class="mt20 b"  style="margin-left: 300px;margin-right: 300px;">
     
-    <div class="container">
-        <div class="row">
-            <div class="span4">
-               
-                <address>
-                    <strong>Center Details</strong><br>
-                    -------------------------
-                    <br>
-                    <strong>{{productData.serviceCenterName}}</strong><br>
-                        {{productData.product.serviceCenter.serviceCenterPhone}}
-                    <br>
-                 
-                </address>
-            </div>
-            <div class="span4 well ml20">
-                <table class="invoice-head">
-                    <tbody>
-                        <tr>
-                            <td class="pull-right"><strong>Customer Name : </strong></td>
-                            <td>{{productData.customer_name}}</td>
-                        </tr>
-                        <tr>
-                            <td class="pull-right"><strong>Invoice No. : </strong></td>
-                            <td>{{productData.id*81+5}}</td>
-                        </tr>
-                        <tr>
-                            <td class="pull-right"><strong>Date :</strong></td>
-                            <td>{{this.date}}</td>
-                        </tr>
-                        
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="span8">
-                <h2>Invoice</h2>
-            </div>
-        </div>
-        <div class="row mt20">
-              <div class="span8 well invoice-body">
-                  <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                          <th>Product</th>
-                            <th>Model</th>
-                        
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>{{productData.product.productName}}</td>
-                        <td>{{productData.product.modelNumber}}</td>
-                        <td>{{productData.repair_Cost}}</td>
-                        </tr>
-            <tr><td colspan="4"></td></tr>
-    <tr>
-                            <td colspan="2">&nbsp;</td>
-                            <td><strong>Total</strong></td>
-                            <td><strong>{{productData.repair_Cost}}</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-              </div>
-          </div>
-          <div class="row">
-              <div class="span8 well invoice-thank">
-                  <h5 style="text-align:center;font-size:20px">Thank You!</h5>
-              </div>
-          </div>
+<div class="container">
+    <div class="row">
+        <div class="span4">
+           
+            <address>
+                <strong style="font-size: 20px;color:black">Center Details</strong><br>
+                -------------------------
+                <br>
+                <strong  style="font-size: 20px;color:black">{{productData.serviceCenterName}}</strong><br>
+                    {{productData.product.serviceCenter.serviceCenterPhone}}
+                <br>
           
+            </address>
+        </div>
+        <div class="span4 well ml20">
+            <table class="invoice-head">
+                <tbody>
+                    <tr>
+                        <td class="pull-right"><strong  style="font-size: 20px;color:black">Customer Name : </strong></td>
+                        <td style="font-size: 20px;color:black">{{productData.customer_name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="pull-right"><strong  style="font-size: 20px;color:black">Invoice No. : </strong></td>
+                        <td style="font-size: 20px;color:black">{{productData.id*81+5}}</td>
+                    </tr>
+                    <tr>
+                        <td class="pull-right"><strong  style="font-size: 20px;color:black">Date : </strong></td>
+                        <td style="font-size: 20px;color:black"> {{this.date}}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
     </div>
+    <div class="row">
+        <div class="span8">
+            <h2 style="font-size: 20px;color:yellowgreen">Invoice</h2>
+        </div>
+    </div>
+    <div class="row mt20">
+          <div class="span8 well invoice-body">
+              <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th  style="font-size: 20px;color:black">Product</th>
+                        <th  style="font-size: 20px;color:black">Model</th>
+                    
+                        <th  style="font-size: 20px;color:black">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="font-size: 20px;color:black">{{productData.product.productName}}</td>
+                    <td style="font-size: 20px;color:black">{{productData.product.modelNumber}}</td>
+                    <td style="font-size: 20px;color:black">{{productData.repair_Cost}}</td>
+                    </tr>
+        <tr><td colspan="4"></td></tr>
+<tr>
+                        <td colspan="2">&nbsp;</td>
+                        <td><strong >Total</strong></td>
+                        <td><strong style="font-size: 20px;color:black">{{productData.repair_Cost}}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+      </div>
+      <div class="row">
+          <div class="span8 well invoice-thank">
+              <h5 style="text-align:center; font-size: 20px;">Thank You!</h5>
+          </div>
+      </div>
     
-    </mat-card>
-    <p class="ml50">This is an electronic Bill and not required Signature</p>
+</div>
+
+</mat-card>
+<p class="mt20" style="margin-left: 300px;">This is an electronic Bill and not required Signature</p>

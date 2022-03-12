@@ -50,7 +50,9 @@ import { UpdateAppointmentComponent } from './pages/customer/update-appointment/
 import { ViewBillComponent } from './pages/admin/view-bill/view-bill.component';
 import { ViewBillCustomerComponent } from './pages/customer/view-bill-customer/view-bill-customer.component';
 
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,7 +103,12 @@ import { ViewBillCustomerComponent } from './pages/customer/view-bill-customer/v
     MatListModule,
     MatSlideToggleModule,
     ReactiveFormsModule ,
-    MatDialogModule
+    MatDialogModule,
+
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule 
+     
   ],
   providers: [{
     provide: MatDialogRef,

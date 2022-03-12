@@ -20,6 +20,8 @@ interface datatype {
 export class SignupComponent implements OnInit {
   public showPassword: 
   boolean = false;
+  public showPassword2: 
+  boolean = false;
   public user={
    
     email:'',
@@ -119,5 +121,8 @@ export class SignupComponent implements OnInit {
 
   public togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
+  }
+  public togglePasswordVisibility1(): void {
+    this.showPassword2 = !this.showPassword2;
   }
 }

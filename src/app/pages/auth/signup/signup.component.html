@@ -51,11 +51,7 @@
                         <!-- password field -->
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>User Password</mat-label>
-                            <!-- <input required required minlength="8" type="password"  
-                            [(ngModel)]="user.password"
-                            name ="password" 
                             
-                            matInput placeholder="Password"> -->
                             <input matInput [type]="showPassword ? 'text' : 'password'" name="password" 
                             [(ngModel)]="user.password"
                             matInput placeholder="Password">
@@ -69,16 +65,12 @@
                         <!-- password field -->
                         <mat-form-field class ="full-width" appearance="outline">
                             <mat-label>Confirm Password</mat-label>
-                            <!-- <input required required minlength="8" type= "password"  
-                            [(ngModel)]="user.confirmPassword"
-                            name ="confirmPassword"
-                            matInput placeholder="Confirm Password"> -->
-
-                            <input matInput [type]="showPassword ? 'text' : 'password'" name="confirmPassword" 
+                           
+                            <input matInput [type]="showPassword2 ? 'text' : 'password'" name="confirmPassword" 
                             [(ngModel)]="user.confirmPassword"
                             matInput placeholder="Confirm Password">
-                            <mat-icon matSuffix (click)="togglePasswordVisibility()">
-                                {{showPassword?'visibility_off':'visibility'}}
+                            <mat-icon matSuffix (click)="togglePasswordVisibility1()">
+                                {{showPassword2?'visibility_off':'visibility'}}
                             </mat-icon>
                         </mat-form-field>
                        

@@ -1,40 +1,66 @@
 
 <div class="container-fluid">
     <div class="row">
-      <div class="card-deck col-lg-4" *ngFor="let e of centerData">
-        <div class="card" id="adminProfileView">
-         
-          <div class="card-body">
-            <mat-card-header>
-             
-                <mat-card-title>
-                    <span>Center : </span> 
-                    {{e.serviceCenterName}}
-                </mat-card-title>
-            </mat-card-header>
-            <p class="card-text mt10">
-              <strong>Address : </strong> {{ e.serviceCenterAddress }}
-              <br /><br>
-              <strong>Email : </strong> {{ e.serviceCenterMailId }}
-              <br /><br>
-              <strong>Phone Number : </strong> {{ e.serviceCenterPhone }}
-              <br /><br>
-              <strong>Description : </strong>{{e.serviceCenterDescription}}
-              <br />
-              
-            </p>
-            <button
-             
-              mat-raised-button
-              color="primary"
-              style="margin-right: 15px"
-              [routerLink]="'/customer/Dashboard/'+e.serviceCenterID"
-            >
-                Dashboard
-            </button>
+      <div class="mt50" *ngIf="centerData.length==0;else hero">
+          <strong style="color:black;margin-left: 350px;margin-top: 50px;font-size: 20px;">No Result Found (serviceCenter Not Found) </strong>
+      </div>
+      <ng-template #hero>
+        <div class="card-deck col-lg-4"  *ngFor="let e of centerData">
+          <div class="card" style="background-color: cadetblue;" id="adminProfileView">
+           
+            <div class="card-body">
+              <mat-card-header>
+               
+                  <mat-card-title>
+                      <span>Center : </span> 
+                      {{e.serviceCenterName}}
+                  </mat-card-title>
+              </mat-card-header>
+              <p class="card-text mt10">
+                <strong>Address : </strong> {{ e.serviceCenterAddress }}
+                <br /><br>
+                <strong>Email : </strong> {{ e.serviceCenterMailId }}
+                <br /><br>
+                <strong>Phone Number : </strong> {{ e.serviceCenterPhone }}
+                <br /><br>
+                <strong>Description : </strong>{{e.serviceCenterDescription}}
+                <br />
+                
+              </p>
+              <button
+               
+                mat-raised-button
+                color="primary"
+                style="margin-right: 15px"
+                [routerLink]="'/customer/Dashboard/'+e.serviceCenterID"
+              >
+                  Dashboard
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </ng-template>
+      
     </div>
   </div>
-
+<strong *ngIf="centerData.length != 0" style="color:black;margin-left: 500px;margin-top: 50pxs;">Note : Showing Available Centers For The Next Five Days From Current Date</strong>
+  <div class="navbar" style="margin-left: 625px;margin-top:100px; width: 300px;font-display:initial;">
+    <input  style="background-color:black;"
+            class = "form-control" 
+            type="text" 
+            name="serviceCenterName" 
+            [(ngModel)]="serviceCenterName" 
+            (ngModelChange)="Search()"
+            placeholder="Enter Center Name to Search"
+            >
+            <button style="margin-left: 100px;"
+            mat-button
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            *ngIf="serviceCenterName"
+            (click)="onSearchClear()"
+              >
+            <mat-icon >close</mat-icon>
+            </button>
+  </div>

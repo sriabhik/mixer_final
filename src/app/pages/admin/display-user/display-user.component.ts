@@ -1,25 +1,9 @@
-// import { Component, OnInit } from '@angular/core';
 
-// @Component({
-//   selector: 'app-display-user',
-//   templateUrl: './display-user.component.html',
-//   styleUrls: ['./display-user.component.css']
-// })
-// export class DisplayUserComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-
 import { MatDialog } from '@angular/material/dialog';
-
 import { UserDisplayService } from 'src/app/service/user-display.service';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
 

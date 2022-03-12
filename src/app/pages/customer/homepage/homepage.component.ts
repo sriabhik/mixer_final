@@ -8,6 +8,8 @@ import { AddCenterService } from 'src/app/service/add-center.service';
 })
 export class HomepageComponent implements OnInit {
   public centerData: any;
+  serviceCenterName:any
+  out ="No Match Found"
   constructor(
     private _api: AddCenterService
   ) { }
@@ -15,5 +17,19 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     this._api.getCenter().subscribe((data:any) => (this.centerData = data));
   }
-
+  Search(){
+    if(this.serviceCenterName==''){
+      this.ngOnInit();
+    }else{
+      this.centerData = this.centerData.filter((res:any)=>{
+        
+          return res.serviceCenterName.toLocaleLowerCase().match(this.serviceCenterName.toLocaleLowerCase());
+          
+      })
+    }
+  }
+  onSearchClear() {
+    this.serviceCenterName = '';
+    this.Search();
+  }
 }
