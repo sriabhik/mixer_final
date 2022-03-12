@@ -22,6 +22,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/test")
+    public String test(){
+        return "running";
+    }
     @PostMapping("/signup")
     public User createUser(@RequestBody User user) throws Exception {
 
