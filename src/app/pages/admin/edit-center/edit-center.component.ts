@@ -57,29 +57,37 @@ export class EditCenterComponent implements OnInit {
       return;
       
     }
-    else if(this.ServiceCenterData.serviceCenterPhone.trim() == ''|| this.ServiceCenterData.serviceCenterPhone ==null){
+    var s = (String)(this.ServiceCenterData.serviceCenterPhone)
+    if(this.ServiceCenterData.serviceCenterPhone.trim() == ''|| this.ServiceCenterData.serviceCenterPhone ==null){
       this._snake.open("Phone Number Required !","Cancel",{duration:2000})
       return;
       
     }
-    else if(this.ServiceCenterData.serviceCenterAddress.trim() == ''|| this.ServiceCenterData.serviceCenterAddress ==null){
+    if(s.length < 10 || s.length>10 ){
+      this._snake.open("Enter valid mobile number of length 10","Cancel",
+      {duration:2000})
+        return;
+    }
+
+    if(this.ServiceCenterData.serviceCenterAddress.trim() == ''|| this.ServiceCenterData.serviceCenterAddress ==null){
       this._snake.open("Center Address Required !","Cancel",{duration:2000})
       return;
       
     }
-    else if(this.ServiceCenterData.serviceCenterMailId.trim() == ''|| this.ServiceCenterData.serviceCenterMailId ==null){
+    if(this.ServiceCenterData.serviceCenterMailId.trim() == ''|| this.ServiceCenterData.serviceCenterMailId ==null){
       this._snake.open("Email Required !","Cancel",{duration:2000})
       return;
     }
 
     this._admin_center.updateServiceCenter(this.ServiceCenterData).subscribe((success:any)=>(
       this._snake.open("Updated Successfully","Cancel",{duration:2000})
+    
       
       
     ),(error:any)=>[
       this._snake.open("Something Went Wrong","Cancel",{duration:2000})
     ])
     
-    
+    this._router.navigate(['/admin/centerProfile'])
   }         
 }

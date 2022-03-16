@@ -37,12 +37,12 @@ tr:nth-child(even) {
           <td>{{q.serviceCenter.serviceCenterName}}</td>
           <td>{{q.dateOfPurchase}}</td>
           <td>{{q.modelNumber}}</td>
-          <td><button mat-raised-button color="primary" [routerLink]="'/customer/updateAppointment/'+q.pId">Update</button></td>
-          <td><button mat-raised-button color="warn"  (click)="deleteBook(q.pId)">Delete</button></td>
+          <td><button *ngIf="!q.status" mat-raised-button color="primary" [routerLink]="'/customer/updateAppointment/'+q.pId">Update</button></td>
+          <td><button *ngIf="!q.status" mat-raised-button color="warn"  (click)="deleteBook(q.pId)">Delete</button></td>
           <td><button mat-raised-button *ngIf="!q.status ; else show" color="accent">In Progress</button></td>
           
           <ng-template #show>
-            <td><button mat-raised-button color="accent" [routerLink]="'/customer/viewBill/'+q.pId">Completed (View Bill) </button></td>
+            <td><button mat-raised-button color="accent" [routerLink]="'/customer/viewBill/'+q.pId">Service Completed(Get Bill) </button></td>
           </ng-template>
         </tr>
         

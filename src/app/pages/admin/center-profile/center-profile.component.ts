@@ -54,6 +54,7 @@ export class CenterProfileComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((val) => {
       if (val == 'delete') {
+        
         this._api.deleteCenter(serviceCenterID).subscribe((data:any) => {
           // this._router.navigate(['/confirmpage']);
           this.centerData = this.centerData.filter(

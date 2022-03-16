@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminCenterService } from 'src/app/service/admin-center.service';
 import { ProductService } from 'src/app/service/product.service';
 import { DatePipe } from '@angular/common';
@@ -35,7 +35,8 @@ export class UpdateAppointmentComponent implements OnInit {
     private _route:ActivatedRoute,
     private _product:ProductService,
     private login:LoginService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private _router :Router
   ) { }
   pId:any
   ngOnInit(): void {
@@ -62,19 +63,27 @@ export class UpdateAppointmentComponent implements OnInit {
       return;
       
     }
-    else if(this.productDetails.modelNumber.trim()==''|| this.productDetails.modelNumber.trim()==null){
+    if(this.productDetails.modelNumber.trim()==''|| this.productDetails.modelNumber.trim()==null){
       this._snake.open("product model Number Required","Cancel",{duration:2000})
       return;
     }
-    else if(this.productDetails.contactNumber.trim() == ''|| this.productDetails.contactNumber.trim()==null){
+    if(this.productDetails.contactNumber.trim() == ''|| this.productDetails.contactNumber.trim()==null){
       this._snake.open("product contact Number Required","Cancel",{duration:2000})
       return;
     }
-    else if(this.productDetails.enterProblem.trim() == ''|| this.productDetails.enterProblem.trim()==null){
+    var s = (String)(this.productDetails.contactNumber)
+    console.log(s.length);
+    
+    if(s.length < 10 || s.length>10 ){
+      this._snake.open("Enter valid mobile number of length 10","Cancel",
+      {duration:2000})
+        return;
+    }
+    if(this.productDetails.enterProblem.trim() == ''|| this.productDetails.enterProblem.trim()==null){
       this._snake.open("product Describe Problem Required","Cancel",{duration:2000})
       return;
     }
-    else if(this.productDetails.dateOfPurchase.trim()!=''){
+    if(this.productDetails.dateOfPurchase.trim()!=''){
       let date3 = new Date(this.productDetails.dateOfPurchase)
     
       let date2 = new Date();this.datePipe.transform(new Date(), 'MM-dd-yyyy');
@@ -94,10 +103,12 @@ export class UpdateAppointmentComponent implements OnInit {
       console.log("Success");
       
       this._snake.open("Appointment Update Successfull","Cancel",{duration:2000})
+      
      
     },(error:any)=>{
       console.log(error);
       this._snake.open("Error occur","Cancel",{duration:2000})
     })
+    this._router.navigate(['/customer/user-homepage'])
   }
 }

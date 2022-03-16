@@ -44,7 +44,7 @@ export class SignupComponent implements OnInit {
         return;
     }
     if(this.user.name ==''||this.user.name==null){
-      this.snack.open("Username Required","Cancel",
+      this.snack.open("Name Required","Cancel",
       {duration:2000}) 
         return;
     }
@@ -59,8 +59,12 @@ export class SignupComponent implements OnInit {
       {duration:2000})
         return;
     }
-    if(this.user.mobileNumber.length < 10 && this.user.mobileNumber.length>10 ){
-      this.snack.open("Enter valid mobile number","Cancel",
+    console.log(this.user.mobileNumber);
+    var s = (String)(this.user.mobileNumber)
+    console.log(s.length);
+    
+    if(s.length < 10 || s.length>10 ){
+      this.snack.open("Enter valid mobile number of length 10","Cancel",
       {duration:2000})
         return;
     }
@@ -85,7 +89,7 @@ export class SignupComponent implements OnInit {
       this.userService.addUser(this.user,this.user.userRole).subscribe(
         (data)=>{
           //success
-        
+          this.f()
           this.snack.open("Registration Successfull","Cancel",{
             duration:2000})
           
