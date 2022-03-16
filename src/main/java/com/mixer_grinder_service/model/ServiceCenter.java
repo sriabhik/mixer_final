@@ -25,7 +25,7 @@ public class ServiceCenter {
 
     private String serviceCenterImageUrl;
 
-    @OneToMany(mappedBy = "serviceCenter",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "serviceCenter",cascade = CascadeType.REMOVE)
     @JsonIgnore
     private Set<Product> set = new LinkedHashSet<>();
 

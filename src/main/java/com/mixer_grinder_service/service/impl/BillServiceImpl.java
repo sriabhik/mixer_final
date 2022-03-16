@@ -27,6 +27,14 @@ public class BillServiceImpl implements BillService {
     }
 
     @Override
+    public void deleteBill(Long Id) {
+        Bill bill = new Bill();
+        bill.setId(Id);
+        this.billRepository.delete(bill);
+
+    }
+
+    @Override
     public Bill getBillBypId(Long pId) {
         Product product = new Product();
         product.setpId(pId);

@@ -36,7 +36,7 @@ public class Product {
 
     private User user;
 
-    @OneToOne(mappedBy = "product")
+    @OneToOne(mappedBy = "product",cascade = CascadeType.REMOVE)
     @JsonIgnore
     private Bill bill;
     public Product() {

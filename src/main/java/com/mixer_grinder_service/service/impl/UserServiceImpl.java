@@ -1,6 +1,7 @@
 
 package com.mixer_grinder_service.service.impl;
 
+import com.mixer_grinder_service.exception.UserNotFoundException;
 import com.mixer_grinder_service.model.ServiceCenter;
 import com.mixer_grinder_service.model.User;
 import com.mixer_grinder_service.model.UserRole;
@@ -27,8 +28,7 @@ public class UserServiceImpl implements UserService {
         //we are creating a method findyUserName to check is the user already present in db
         User local = this.userRepository.findByUsername(user.getUsername());
         if (local != null) {
-            System.out.println("User is already there!!");
-            throw new Exception("User exits ");
+            throw new UserNotFoundException("User " + local.getId() + " is already Exists");
         } else {
             //here we are taking role we recieved and saving in db if it not present
             for (UserRole ur : userRoles) {

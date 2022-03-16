@@ -37,7 +37,7 @@ public class User  implements UserDetails {
     @JsonIgnore
     private Set<UserRole> userRoles = new HashSet<>();
 
-    @OneToMany(orphanRemoval = true,mappedBy = "user",cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(orphanRemoval = true,mappedBy = "user",cascade=CascadeType.REMOVE,fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<Product> products = new HashSet<>();
     //no args constructor

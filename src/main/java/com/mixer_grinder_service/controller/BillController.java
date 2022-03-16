@@ -29,4 +29,8 @@ public class BillController {
     public ResponseEntity<?> getBillBypId(@PathVariable("pId") Long pId){
         return ResponseEntity.ok(this.billService.getBillBypId(pId));
     }
+    @DeleteMapping("/delete/{Id}")
+    public void deleteBill(@PathVariable("Id") Long Id){
+        this.billService.deleteBill(Id);
+    }
 }
